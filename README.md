@@ -1,6 +1,10 @@
 # Car wars
 A chaotic bullet hell game where you play as a car
 
+Links:
+- itch.io: https://ghoulkingr.itch.io/car-wars
+- Wavedash: https://wavedash.com/games/car-wars
+
 ## Controls
 **WASD** to move your car
 **Up, Down, Left, and Right** arrow to shoot your turret in the direction
