@@ -1,0 +1,5 @@
+game_id = "j971wkejfwagnqwr4jtbg5nhg985bc25"
+upload_dir = "."
+
+[godot]
+version = "4.6.2"
