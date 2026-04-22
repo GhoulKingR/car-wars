@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://bro5fb4vck8up"]
+
+[ext_resource type="Script" uid="uid://dsdv4hanre6g2" path="res://scripts/game.gd" id="1_8wt86"]
+[ext_resource type="PackedScene" uid="uid://c4c170cg80p8j" path="res://objects/terrain.tscn" id="2_aeinl"]
+[ext_resource type="PackedScene" uid="uid://b5b1jms8tcn66" path="res://objects/player.tscn" id="3_diroj"]
+
+[node name="Game" type="Node" unique_id=246028345]
+script = ExtResource("1_8wt86")
+
+[node name="Terrain" parent="." unique_id=1169113831 instance=ExtResource("2_aeinl")]
+
+[node name="Player" parent="." unique_id=757360834 instance=ExtResource("3_diroj")]
+position = Vector2(360, 202.5)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=100249852]
+offset = Vector2(360, 202.5)
+
+[connection signal="shoot" from="Player" to="." method="_on_player_shoot"]

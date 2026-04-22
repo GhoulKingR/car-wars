@@ -1,0 +1,87 @@
+[gd_scene format=3 uid="uid://b2bc1cntk0jwd"]
+
+[ext_resource type="Script" uid="uid://deqk24s30nkh4" path="res://scripts/pause_screen.gd" id="1_xub4q"]
+[ext_resource type="Texture2D" uid="uid://qr2buasv25g5" path="res://assets/Pause menu.png" id="2_8py1w"]
+[ext_resource type="Texture2D" uid="uid://eq8yhf1hwelq" path="res://assets/resume button.png" id="3_16tsp"]
+[ext_resource type="Texture2D" uid="uid://egj2y6pvhnbh" path="res://assets/quit button.png" id="4_orahx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hl5t3"]
+atlas = ExtResource("3_16tsp")
+region = Rect2(0, 0, 200, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_16tsp"]
+atlas = ExtResource("3_16tsp")
+region = Rect2(200, 0, 200, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_orahx"]
+atlas = ExtResource("4_orahx")
+region = Rect2(0, 0, 200, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_umkmc"]
+atlas = ExtResource("4_orahx")
+region = Rect2(200, 0, 200, 48)
+
+[node name="pause_screen" type="Node" unique_id=1473614616]
+process_mode = 3
+script = ExtResource("1_xub4q")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=241355823]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1224415462]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.39215687)
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer" unique_id=1054996399]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -84.5
+offset_top = -97.0
+offset_right = 84.5
+offset_bottom = 97.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_8py1w")
+
+[node name="Resume" type="TextureButton" parent="CanvasLayer" unique_id=675208168]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -68.99997
+offset_top = -31.499985
+offset_right = 131.00003
+offset_bottom = 16.500015
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.7, 0.7)
+texture_normal = SubResource("AtlasTexture_hl5t3")
+texture_pressed = SubResource("AtlasTexture_hl5t3")
+texture_hover = SubResource("AtlasTexture_16tsp")
+
+[node name="quit" type="TextureButton" parent="CanvasLayer" unique_id=1800096494]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -69.0
+offset_top = 18.5
+offset_right = 131.0
+offset_bottom = 66.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.7, 0.7)
+texture_normal = SubResource("AtlasTexture_orahx")
+texture_pressed = SubResource("AtlasTexture_orahx")
+texture_hover = SubResource("AtlasTexture_umkmc")
+
+[connection signal="pressed" from="CanvasLayer/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="CanvasLayer/quit" to="." method="_on_quit_pressed"]

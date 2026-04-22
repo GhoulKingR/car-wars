@@ -1,0 +1,87 @@
+[gd_scene format=3 uid="uid://g8e0vj00i4m3"]
+
+[ext_resource type="Script" uid="uid://b24osgueaa346" path="res://components/leaderboard/leaderboard.gd" id="1_b6hv0"]
+[ext_resource type="PackedScene" uid="uid://dw1613oan60gb" path="res://components/leaderboard/table_head.tscn" id="2_b6hv0"]
+[ext_resource type="PackedScene" uid="uid://bec0dv3qn4ih1" path="res://components/leaderboard/table_row.tscn" id="3_tu8f3"]
+
+[node name="ScrollContainer" type="ScrollContainer" unique_id=323456991]
+custom_minimum_size = Vector2(0, 121)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+draw_focus_border = true
+horizontal_scroll_mode = 0
+script = ExtResource("1_b6hv0")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1353959673]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TableHead" parent="VBoxContainer" unique_id=1621498181 instance=ExtResource("2_b6hv0")]
+layout_mode = 2
+
+[node name="TableRow1" parent="VBoxContainer" unique_id=1940586566 instance=ExtResource("3_tu8f3")]
+layout_mode = 2
+
+[node name="TableRow2" parent="VBoxContainer" unique_id=937227683 instance=ExtResource("3_tu8f3")]
+layout_mode = 2
+
+[node name="TableRow3" parent="VBoxContainer" unique_id=1064110797 instance=ExtResource("3_tu8f3")]
+layout_mode = 2
+
+[node name="TableRow4" parent="VBoxContainer" unique_id=1418896696 instance=ExtResource("3_tu8f3")]
+layout_mode = 2
+
+[node name="TableRow5" parent="VBoxContainer" unique_id=2143220228 instance=ExtResource("3_tu8f3")]
+layout_mode = 2
+
+[node name="TableRow6" parent="VBoxContainer" unique_id=1281152057 instance=ExtResource("3_tu8f3")]
+layout_mode = 2
+
+[node name="TableRow7" parent="VBoxContainer" unique_id=1115999084 instance=ExtResource("3_tu8f3")]
+layout_mode = 2
+
+[node name="TableRow8" parent="VBoxContainer" unique_id=283856764 instance=ExtResource("3_tu8f3")]
+layout_mode = 2
+
+[node name="TableRow9" parent="VBoxContainer" unique_id=1079086971 instance=ExtResource("3_tu8f3")]
+layout_mode = 2
+
+[node name="TableRow10" parent="VBoxContainer" unique_id=1465429591 instance=ExtResource("3_tu8f3")]
+layout_mode = 2
+
+[node name="TableRow11" parent="VBoxContainer" unique_id=49521704 instance=ExtResource("3_tu8f3")]
+layout_mode = 2
+
+[node name="TableRow12" parent="VBoxContainer" unique_id=1289554758 instance=ExtResource("3_tu8f3")]
+layout_mode = 2
+
+[node name="TableRow13" parent="VBoxContainer" unique_id=1555878632 instance=ExtResource("3_tu8f3")]
+layout_mode = 2
+
+[node name="TableRow14" parent="VBoxContainer" unique_id=1040773177 instance=ExtResource("3_tu8f3")]
+layout_mode = 2
+
+[node name="TableRow15" parent="VBoxContainer" unique_id=2030116282 instance=ExtResource("3_tu8f3")]
+layout_mode = 2
+
+[node name="TableRow16" parent="VBoxContainer" unique_id=793831830 instance=ExtResource("3_tu8f3")]
+layout_mode = 2
+
+[node name="TableRow17" parent="VBoxContainer" unique_id=1041187564 instance=ExtResource("3_tu8f3")]
+layout_mode = 2
+
+[node name="TableRow18" parent="VBoxContainer" unique_id=694459563 instance=ExtResource("3_tu8f3")]
+layout_mode = 2
+
+[node name="TableRow19" parent="VBoxContainer" unique_id=2063101075 instance=ExtResource("3_tu8f3")]
+layout_mode = 2
+
+[node name="TableRow20" parent="VBoxContainer" unique_id=395506574 instance=ExtResource("3_tu8f3")]
+layout_mode = 2
+
+[node name="TableRow21" parent="VBoxContainer" unique_id=1215338202 instance=ExtResource("3_tu8f3")]
+layout_mode = 2

@@ -1,0 +1,75 @@
+[gd_scene format=3 uid="uid://cn1t3t0qykkwk"]
+
+[ext_resource type="Script" uid="uid://dy8by85m3ruo5" path="res://scripts/main.gd" id="1_jjgbg"]
+[ext_resource type="Texture2D" uid="uid://cetsf5nwndbih" path="res://assets/start menu.png" id="2_bo1nx"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_8gbba"]
+
+[sub_resource type="Animation" id="Animation_jjvhh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:label_settings:font_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_kry3j"]
+resource_name = "button_fade"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:label_settings:font_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.1882353)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_21xkr"]
+_data = {
+&"RESET": SubResource("Animation_jjvhh"),
+&"button_fade": SubResource("Animation_kry3j")
+}
+
+[node name="Main" type="Node" unique_id=1670584056]
+script = ExtResource("1_jjgbg")
+
+[node name="start_screen" type="CanvasLayer" parent="." unique_id=2005949117]
+
+[node name="TextureRect" type="TextureRect" parent="start_screen" unique_id=285226192]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_bo1nx")
+
+[node name="Label" type="Label" parent="start_screen" unique_id=1120883163]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -75.5
+offset_top = 68.5
+offset_right = 75.5
+offset_bottom = 91.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Press space to start"
+label_settings = SubResource("LabelSettings_8gbba")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="start_screen/Label" unique_id=2069851834]
+libraries/ = SubResource("AnimationLibrary_21xkr")
+autoplay = &"button_fade"

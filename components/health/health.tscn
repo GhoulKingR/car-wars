@@ -1,0 +1,167 @@
+[gd_scene format=3 uid="uid://bba424tkrt2kl"]
+
+[ext_resource type="Script" uid="uid://c0ycy1msnn1x" path="res://scripts/health.gd" id="1_d1vrf"]
+[ext_resource type="Texture2D" uid="uid://thdtjoi6jb6j" path="res://assets/UI stufs.png" id="2_r07if"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d1vrf"]
+atlas = ExtResource("2_r07if")
+region = Rect2(2, 1, 43, 19)
+
+[sub_resource type="Animation" id="Animation_r07if"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(0, 0, 22, 19)]
+}
+
+[sub_resource type="Animation" id="Animation_wtbcq"]
+resource_name = "heart_pulse"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Rect2(0, 0, 22, 19), Rect2(22, 0, 22, 19), Rect2(0, 0, 22, 19)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_r2b67"]
+_data = {
+&"RESET": SubResource("Animation_r07if"),
+&"heart_pulse": SubResource("Animation_wtbcq")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r07if"]
+atlas = ExtResource("2_r07if")
+region = Rect2(46, 1, 26, 5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wtbcq"]
+atlas = ExtResource("2_r07if")
+region = Rect2(46, 7, 26, 5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r2b67"]
+atlas = ExtResource("2_r07if")
+region = Rect2(46, 13, 26, 5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rrpts"]
+atlas = ExtResource("2_r07if")
+region = Rect2(46, 19, 26, 5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ntlcd"]
+atlas = ExtResource("2_r07if")
+region = Rect2(46, 25, 26, 5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_psftb"]
+atlas = ExtResource("2_r07if")
+region = Rect2(46, 31, 26, 5)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_u3a8k"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r07if")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wtbcq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r2b67")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rrpts")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ntlcd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_psftb")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_r2b67"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Bar:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(36.5, -3.5)]
+}
+
+[sub_resource type="Animation" id="Animation_d1vrf"]
+resource_name = "shake"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Bar:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.03333334, 0.06666668, 0.099999994, 0.1333, 0.16663334, 0.19996668, 0.2333, 0.26663336),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(36.500004, -3.4999995), Vector2(38.5, -3.5), Vector2(36.5, -3.5), Vector2(34.5, -3.5), Vector2(36.5, -3.5), Vector2(38.5, -3.5), Vector2(36.5, -3.5), Vector2(34.5, -3.5), Vector2(36.5, -3.5)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_r07if"]
+_data = {
+&"RESET": SubResource("Animation_r2b67"),
+&"shake": SubResource("Animation_d1vrf")
+}
+
+[sub_resource type="LabelSettings" id="LabelSettings_d1vrf"]
+font_size = 5
+font_color = Color(0, 0, 0, 1)
+
+[node name="Health" type="CanvasGroup" unique_id=1801320231]
+scale = Vector2(2, 2)
+script = ExtResource("1_d1vrf")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=596973323]
+texture = SubResource("AtlasTexture_d1vrf")
+region_enabled = true
+region_rect = Rect2(0, 0, 22, 19)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2012191453]
+libraries/ = SubResource("AnimationLibrary_r2b67")
+autoplay = &"heart_pulse"
+
+[node name="Bar" type="AnimatedSprite2D" parent="." unique_id=1713184002]
+position = Vector2(36.5, -3.5)
+scale = Vector2(1.8999999, 1.9)
+sprite_frames = SubResource("SpriteFrames_u3a8k")
+frame = 5
+
+[node name="BarShake" type="AnimationPlayer" parent="." unique_id=2116142184]
+libraries/ = SubResource("AnimationLibrary_r07if")
+
+[node name="text" type="Label" parent="." unique_id=49392556]
+offset_left = 13.5
+offset_top = 1.5
+offset_right = 33.5
+offset_bottom = 9.5
+text = "100/100"
+label_settings = SubResource("LabelSettings_d1vrf")
+vertical_alignment = 2

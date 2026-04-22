@@ -1,0 +1,189 @@
+[gd_scene format=3 uid="uid://b5b1jms8tcn66"]
+
+[ext_resource type="Texture2D" uid="uid://bv0q7p60idxb" path="res://assets/Car.png" id="1_eqqp1"]
+[ext_resource type="Script" uid="uid://nyiwq3gvjxeh" path="res://scripts/player.gd" id="1_ykyjo"]
+[ext_resource type="PackedScene" uid="uid://b17u8q62rkm65" path="res://objects/turrent.tscn" id="3_uxov2"]
+[ext_resource type="Texture2D" uid="uid://d1kdnyl4ir2sa" path="res://assets/Car explode.png" id="4_nmc1l"]
+[ext_resource type="AudioStream" uid="uid://x08rof324q21" path="res://assets/Sounds/u_3rdmeaw7un-tank-track-ratteling-197409.mp3" id="5_f46kd"]
+[ext_resource type="AudioStream" uid="uid://7dky3tje3320" path="res://assets/Sounds/dragon-studio-loud-explosion-425457.mp3" id="6_3rerk"]
+[ext_resource type="AudioStream" uid="uid://benccb8bf3joi" path="res://assets/Sounds/dragon-studio-explosion-with-debris-494320.mp3" id="7_i825w"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ykyjo"]
+size = Vector2(18, 22)
+
+[sub_resource type="Animation" id="Animation_uxov2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Turrent:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_nmc1l"]
+resource_name = "just_spawned"
+length = 0.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Turrent:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_f46kd"]
+_data = {
+&"RESET": SubResource("Animation_uxov2"),
+&"just_spawned": SubResource("Animation_nmc1l")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f46kd"]
+atlas = ExtResource("4_nmc1l")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3rerk"]
+atlas = ExtResource("4_nmc1l")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i825w"]
+atlas = ExtResource("4_nmc1l")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3rfka"]
+atlas = ExtResource("4_nmc1l")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i8sra"]
+atlas = ExtResource("4_nmc1l")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4vq5b"]
+atlas = ExtResource("4_nmc1l")
+region = Rect2(240, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3nfmf"]
+atlas = ExtResource("4_nmc1l")
+region = Rect2(288, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_42cpl"]
+atlas = ExtResource("4_nmc1l")
+region = Rect2(336, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vqq2l"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f46kd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3rerk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i825w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3rfka")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i8sra")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4vq5b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3nfmf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_42cpl")
+}],
+"loop": false,
+"name": &"default",
+"speed": 12.0
+}]
+
+[node name="Player" type="CharacterBody2D" unique_id=757360834]
+collision_layer = 2
+collision_mask = 6
+motion_mode = 1
+script = ExtResource("1_ykyjo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=322212229]
+position = Vector2(-1, -1)
+shape = SubResource("RectangleShape2D_ykyjo")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1460110456]
+texture_filter = 1
+texture = ExtResource("1_eqqp1")
+hframes = 2
+
+[node name="Turrent" parent="." unique_id=1992343685 instance=ExtResource("3_uxov2")]
+position = Vector2(-1, -1)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=529595932]
+zoom = Vector2(0.75, 0.75)
+position_smoothing_enabled = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=829247458]
+libraries/ = SubResource("AnimationLibrary_f46kd")
+autoplay = &"just_spawned"
+
+[node name="Explosion" type="AnimatedSprite2D" parent="." unique_id=799905629]
+visible = false
+sprite_frames = SubResource("SpriteFrames_vqq2l")
+
+[node name="AudioListener2D" type="AudioListener2D" parent="." unique_id=2131771246]
+current = true
+
+[node name="AudioManager" type="Node2D" parent="." unique_id=759179792]
+
+[node name="Explosion" type="AudioStreamPlayer" parent="AudioManager" unique_id=571846981]
+process_mode = 3
+stream = ExtResource("6_3rerk")
+volume_db = -25.0
+
+[node name="RattlingMovement" type="AudioStreamPlayer" parent="AudioManager" unique_id=119010228]
+stream = ExtResource("5_f46kd")
+volume_db = -35.0
+
+[node name="HitSound" type="AudioStreamPlayer" parent="AudioManager" unique_id=1745689471]
+stream = ExtResource("7_i825w")
+volume_db = -25.0
+max_polyphony = 15
+
+[connection signal="shoot" from="Turrent" to="." method="_on_turrent_shoot"]

@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://bec0dv3qn4ih1"]
+
+[ext_resource type="Script" uid="uid://cjcxnxellrtrd" path="res://components/leaderboard/table_row.gd" id="1_7msdl"]
+[ext_resource type="LabelSettings" uid="uid://odjss45pxvp1" path="res://components/leaderboard/font_settings.tres" id="2_6jccj"]
+
+[node name="TableRow" type="HBoxContainer" unique_id=1940586566]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_7msdl")
+
+[node name="Pos" type="Label" parent="." unique_id=1612587015]
+custom_minimum_size = Vector2(16, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+label_settings = ExtResource("2_6jccj")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Name" type="Label" parent="." unique_id=1865728308]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+label_settings = ExtResource("2_6jccj")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Kills" type="Label" parent="." unique_id=1027936929]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "0"
+label_settings = ExtResource("2_6jccj")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Deaths" type="Label" parent="." unique_id=292770132]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "0"
+label_settings = ExtResource("2_6jccj")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Score" type="Label" parent="." unique_id=1586654503]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "0"
+label_settings = ExtResource("2_6jccj")
+horizontal_alignment = 1
+vertical_alignment = 1

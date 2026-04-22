@@ -1,0 +1,89 @@
+[gd_scene format=3 uid="uid://b17u8q62rkm65"]
+
+[ext_resource type="Script" uid="uid://bcyyqqba2wr0p" path="res://scripts/turrent.gd" id="1_81va8"]
+[ext_resource type="Texture2D" uid="uid://du6k2snw0gebc" path="res://assets/turrent.png" id="1_a832s"]
+[ext_resource type="Texture2D" uid="uid://bobp0a3f50uyt" path="res://assets/bullet launch.png" id="3_scred"]
+[ext_resource type="AudioStream" uid="uid://dxos5v5l06dvt" path="res://assets/Sounds/dragon-studio-gunshot-511311.mp3" id="4_nfloa"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_scred"]
+atlas = ExtResource("3_scred")
+region = Rect2(0, 0, 13, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nfloa"]
+atlas = ExtResource("3_scred")
+region = Rect2(13, 0, 13, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rd57d"]
+atlas = ExtResource("3_scred")
+region = Rect2(26, 0, 13, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n2wlg"]
+atlas = ExtResource("3_scred")
+region = Rect2(39, 0, 13, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lfh81"]
+atlas = ExtResource("3_scred")
+region = Rect2(52, 0, 13, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t3pwa"]
+atlas = ExtResource("3_scred")
+region = Rect2(65, 0, 13, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rpkah"]
+atlas = ExtResource("3_scred")
+region = Rect2(78, 0, 13, 13)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_n8sx1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_scred")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nfloa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rd57d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n2wlg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lfh81")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t3pwa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rpkah")
+}],
+"loop": false,
+"name": &"default",
+"speed": 40.0
+}]
+
+[node name="Turrent" type="Node2D" unique_id=1992343685]
+script = ExtResource("1_81va8")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1234854965]
+texture = ExtResource("1_a832s")
+hframes = 2
+
+[node name="Timer" type="Timer" parent="." unique_id=1205682986]
+wait_time = 0.25
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=567132242]
+visible = false
+position = Vector2(0, -20)
+sprite_frames = SubResource("SpriteFrames_n8sx1")
+frame = 6
+frame_progress = 1.0
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=192834467]
+process_mode = 3
+stream = ExtResource("4_nfloa")
+volume_db = -20.0
+max_polyphony = 5
+bus = &"Enemy sfx"
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

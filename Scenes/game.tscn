@@ -1,0 +1,108 @@
+[gd_scene format=3 uid="uid://cdket7vcjudlu"]
+
+[ext_resource type="PackedScene" uid="uid://b5b1jms8tcn66" path="res://objects/player.tscn" id="1_ebmjs"]
+[ext_resource type="PackedScene" uid="uid://c4c170cg80p8j" path="res://objects/terrain.tscn" id="1_qxrlw"]
+[ext_resource type="Script" uid="uid://dsdv4hanre6g2" path="res://scripts/game.gd" id="1_wrm1d"]
+[ext_resource type="PackedScene" uid="uid://bba424tkrt2kl" path="res://components/health/health.tscn" id="4_3dryh"]
+[ext_resource type="AudioStream" uid="uid://bo5xvi8xs61rw" path="res://assets/Sounds/freesound_community-distant-warfare-51848.mp3" id="4_i6g32"]
+[ext_resource type="Script" uid="uid://cag5mp4ra70q7" path="res://scripts/score.gd" id="5_wowpa"]
+[ext_resource type="AudioStream" uid="uid://kebvphqhf673" path="res://assets/Sounds/u_edtmwfwu7c-beep-329314.mp3" id="6_v158k"]
+[ext_resource type="AudioStream" uid="uid://c6w1ogh4kw1qr" path="res://assets/Sounds/freesound_community-short-beep-tone-47916.mp3" id="7_1l0tm"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_i6g32"]
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_wowpa"]
+font_size = 6
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_1l0tm"]
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_v158k"]
+font_size = 5
+font_color = Color(0, 0, 0, 1)
+
+[node name="Game" type="Node" unique_id=246028345]
+script = ExtResource("1_wrm1d")
+
+[node name="Terrain" parent="." unique_id=1169113831 instance=ExtResource("1_qxrlw")]
+
+[node name="Player" parent="." unique_id=757360834 node_paths=PackedStringArray("health_bar", "score_element") instance=ExtResource("1_ebmjs")]
+position = Vector2(360, 202.5)
+health_bar = NodePath("../HUD/Health")
+score_element = NodePath("../HUD/Score")
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=1760663027]
+
+[node name="Health" parent="HUD" unique_id=1801320231 instance=ExtResource("4_3dryh")]
+position = Vector2(22, 22)
+
+[node name="Score" type="Label" parent="HUD" unique_id=1790819031]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -51.0
+offset_bottom = 18.0
+grow_horizontal = 0
+text = "0"
+label_settings = SubResource("LabelSettings_i6g32")
+horizontal_alignment = 2
+script = ExtResource("5_wowpa")
+
+[node name="Leaderboard" type="Label" parent="HUD" unique_id=1109837764]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -52.0
+offset_top = -63.0
+grow_horizontal = 0
+grow_vertical = 0
+label_settings = SubResource("LabelSettings_wowpa")
+
+[node name="Timer" type="Timer" parent="HUD" unique_id=865011963]
+autostart = true
+
+[node name="Counter" type="Label" parent="HUD" unique_id=478333625]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "0:00"
+label_settings = SubResource("LabelSettings_1l0tm")
+
+[node name="Events" type="Label" parent="HUD" unique_id=843382187]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -14.0
+offset_right = 44.0
+grow_vertical = 0
+label_settings = SubResource("LabelSettings_v158k")
+vertical_alignment = 2
+
+[node name="AudioManager" type="Node" parent="." unique_id=1162542337]
+
+[node name="FinalBeep" type="AudioStreamPlayer" parent="AudioManager" unique_id=280710880]
+stream = ExtResource("6_v158k")
+volume_db = -20.0
+
+[node name="TimerBeep" type="AudioStreamPlayer" parent="AudioManager" unique_id=205037273]
+stream = ExtResource("7_1l0tm")
+volume_db = -20.0
+max_polyphony = 3
+
+[node name="BackgroundSound" type="AudioStreamPlayer" parent="AudioManager" unique_id=1925386777]
+stream = ExtResource("4_i6g32")
+
+[connection signal="event" from="Player" to="." method="_game_event"]
+[connection signal="respawn" from="Player" to="." method="respawn"]
+[connection signal="shoot" from="Player" to="." method="on_shoot"]
+[connection signal="timeout" from="HUD/Timer" to="." method="_on_timer_timeout"]

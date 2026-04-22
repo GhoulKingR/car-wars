@@ -1,0 +1,97 @@
+[gd_scene format=3 uid="uid://d4hgcrdjdsc5t"]
+
+[ext_resource type="Script" uid="uid://c5ena7dw4os6h" path="res://components/game_over/game_over.gd" id="1_5pvkk"]
+[ext_resource type="Texture2D" uid="uid://jf8n7av2fomf" path="res://assets/Gameover.png" id="2_5pvkk"]
+[ext_resource type="PackedScene" uid="uid://g8e0vj00i4m3" path="res://components/leaderboard/leaderboard.tscn" id="2_bg3wq"]
+[ext_resource type="Texture2D" uid="uid://cwi6glfqijkg5" path="res://assets/restart button.png" id="5_u14pw"]
+[ext_resource type="Texture2D" uid="uid://egj2y6pvhnbh" path="res://assets/quit button.png" id="6_t0ojp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u0q0j"]
+atlas = ExtResource("5_u14pw")
+region = Rect2(0, 0, 200, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jpsww"]
+atlas = ExtResource("5_u14pw")
+region = Rect2(200, 0, 200, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ek2u3"]
+atlas = ExtResource("6_t0ojp")
+region = Rect2(0, 0, 200, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mdfgi"]
+atlas = ExtResource("6_t0ojp")
+region = Rect2(200, 0, 200, 48)
+
+[node name="GameOver" type="CanvasLayer" unique_id=1962485250]
+process_mode = 3
+script = ExtResource("1_5pvkk")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=812826629]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.39215687)
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=19097591]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.5
+offset_top = -97.0
+offset_right = 200.5
+offset_bottom = 97.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_5pvkk")
+
+[node name="Leaderboard" parent="." unique_id=1002572194 instance=ExtResource("2_bg3wq")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -41.0
+offset_top = -66.5
+offset_right = 193.0
+offset_bottom = 84.5
+
+[node name="restart" type="TextureButton" parent="." unique_id=1966996998]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -190.0
+offset_top = -36.5
+offset_right = 10.000061
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.7, 0.7)
+texture_normal = SubResource("AtlasTexture_u0q0j")
+texture_pressed = SubResource("AtlasTexture_u0q0j")
+texture_hover = SubResource("AtlasTexture_jpsww")
+
+[node name="quit" type="TextureButton" parent="." unique_id=768794448]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -189.99998
+offset_top = 14.499954
+offset_right = 10.0
+offset_bottom = 62.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.7, 0.7)
+texture_normal = SubResource("AtlasTexture_ek2u3")
+texture_pressed = SubResource("AtlasTexture_ek2u3")
+texture_hover = SubResource("AtlasTexture_mdfgi")
+
+[connection signal="pressed" from="restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="quit" to="." method="_on_quit_pressed"]

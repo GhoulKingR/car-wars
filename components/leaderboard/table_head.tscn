@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://dw1613oan60gb"]
+
+[ext_resource type="LabelSettings" uid="uid://odjss45pxvp1" path="res://components/leaderboard/font_settings.tres" id="1_jytt3"]
+
+[node name="TableHead" type="HBoxContainer" unique_id=1621498181]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Blank" type="Label" parent="." unique_id=2099295973]
+custom_minimum_size = Vector2(16, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Pos"
+label_settings = ExtResource("1_jytt3")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Blank2" type="Label" parent="." unique_id=1042871816]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "Name"
+label_settings = ExtResource("1_jytt3")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Kills" type="Label" parent="." unique_id=1035100774]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "Kills"
+label_settings = ExtResource("1_jytt3")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Deaths" type="Label" parent="." unique_id=2071780325]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "Deaths"
+label_settings = ExtResource("1_jytt3")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Score" type="Label" parent="." unique_id=825146734]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "Score"
+label_settings = ExtResource("1_jytt3")
+horizontal_alignment = 1
+vertical_alignment = 1
