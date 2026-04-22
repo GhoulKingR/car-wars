@@ -36,6 +36,15 @@ func create_spawn_vec() -> Vector2:
 	return spawn_vec
 
 func _ready() -> void:
+	# check for tutorial file and begin countdown to hide
+	if not FileAccess.file_exists("user://tutorial.dat"):
+		$HUD/Tutorial.show()
+		FileAccess.open("user://tutorial.dat", FileAccess.WRITE).store_string("done")
+		get_tree().create_timer(10).timeout.connect(
+			func():
+				$HUD/Tutorial.hide()
+		)
+	
 	background_sound.play()
 	players.append(player)
 	
