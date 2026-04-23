@@ -87,4 +87,4 @@ frame_progress = 0.91369426
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=518039318]
 process_mode = 3
 stream = ExtResource("4_ucnj8")
-bus = &"Enemy sfx"
+bus = &"SoundFX"

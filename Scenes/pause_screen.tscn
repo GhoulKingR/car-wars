@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://qr2buasv25g5" path="res://assets/Pause menu.png" id="2_8py1w"]
 [ext_resource type="Texture2D" uid="uid://eq8yhf1hwelq" path="res://assets/resume button.png" id="3_16tsp"]
 [ext_resource type="Texture2D" uid="uid://egj2y6pvhnbh" path="res://assets/quit button.png" id="4_orahx"]
+[ext_resource type="Texture2D" uid="uid://djrlmq24bi2ry" path="res://assets/Settings button.png" id="4_umkmc"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hl5t3"]
 atlas = ExtResource("3_16tsp")
@@ -11,6 +12,14 @@ region = Rect2(0, 0, 200, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_16tsp"]
 atlas = ExtResource("3_16tsp")
+region = Rect2(200, 0, 200, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mvwk4"]
+atlas = ExtResource("4_umkmc")
+region = Rect2(0, 0, 200, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kt4h4"]
+atlas = ExtResource("4_umkmc")
 region = Rect2(200, 0, 200, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_orahx"]
@@ -26,6 +35,7 @@ process_mode = 3
 script = ExtResource("1_xub4q")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=241355823]
+layer = 2
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1224415462]
 anchors_preset = 15
@@ -56,9 +66,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -68.99997
-offset_top = -31.499985
+offset_top = -39.499985
 offset_right = 131.00003
-offset_bottom = 16.500015
+offset_bottom = 8.500015
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.7, 0.7)
@@ -66,16 +76,33 @@ texture_normal = SubResource("AtlasTexture_hl5t3")
 texture_pressed = SubResource("AtlasTexture_hl5t3")
 texture_hover = SubResource("AtlasTexture_16tsp")
 
-[node name="quit" type="TextureButton" parent="CanvasLayer" unique_id=1800096494]
+[node name="Settings" type="TextureButton" parent="CanvasLayer" unique_id=1309487384]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -69.0
-offset_top = 18.5
+offset_top = 2.5000153
 offset_right = 131.0
-offset_bottom = 66.5
+offset_bottom = 50.500015
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.7, 0.7)
+texture_normal = SubResource("AtlasTexture_mvwk4")
+texture_pressed = SubResource("AtlasTexture_mvwk4")
+texture_hover = SubResource("AtlasTexture_kt4h4")
+
+[node name="quit" type="TextureButton" parent="CanvasLayer" unique_id=1800096494]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -68.99997
+offset_top = 45.500015
+offset_right = 131.00003
+offset_bottom = 93.5
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.7, 0.7)
@@ -84,4 +111,5 @@ texture_pressed = SubResource("AtlasTexture_orahx")
 texture_hover = SubResource("AtlasTexture_umkmc")
 
 [connection signal="pressed" from="CanvasLayer/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="CanvasLayer/Settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="CanvasLayer/quit" to="." method="_on_quit_pressed"]

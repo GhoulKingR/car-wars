@@ -123,11 +123,11 @@ func _on_timer_timeout() -> void:
 	# calculate leaderboard
 	var top_contenders: Array[CharacterBody2D] = players.duplicate()
 	top_contenders.sort_custom(sort_players)
-	top_contenders = top_contenders.slice(0, 5)
+	top_contenders = top_contenders
 	var text = "Leaderboard (Top 5):\n"
 	var player_found := false
 	
-	for i in range(len(top_contenders)):
+	for i in range(5):
 		var p = top_contenders[i]
 		text += "{0}. {1} ({2})\n".format([i+1, p.get_nickname(), p.get_score()])
 		if p == player:

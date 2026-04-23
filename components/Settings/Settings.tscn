@@ -1,0 +1,110 @@
+[gd_scene format=3 uid="uid://0myk7yih30hf"]
+
+[ext_resource type="Texture2D" uid="uid://f4ey71p7t1x" path="res://assets/settings.png" id="1_hsfxb"]
+[ext_resource type="Script" uid="uid://dpxvv1p5c3qiq" path="res://components/Settings/settings.gd" id="1_na2en"]
+[ext_resource type="Texture2D" uid="uid://cttcatsep5ijv" path="res://assets/X close window.png" id="3_bhmcr"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_pd50u"]
+font_size = 7
+font_color = Color(0.25490198, 0.22352941, 0.20392157, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kt63j"]
+atlas = ExtResource("3_bhmcr")
+region = Rect2(0, 0, 10, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_40e78"]
+atlas = ExtResource("3_bhmcr")
+region = Rect2(10, 0, 10, 10)
+
+[node name="Settings" type="Control" unique_id=877870119]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_na2en")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=2141491758]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_hsfxb")
+
+[node name="Label" type="Label" parent="." unique_id=1678564241]
+layout_mode = 0
+offset_left = -72.0
+offset_top = -56.5
+offset_right = -52.0
+offset_bottom = -45.5
+text = "Music"
+label_settings = SubResource("LabelSettings_pd50u")
+
+[node name="MusicSlider" type="HSlider" parent="." unique_id=682014412]
+layout_mode = 0
+offset_left = -73.0
+offset_top = -43.5
+offset_right = 70.0
+offset_bottom = -27.5
+
+[node name="Label2" type="Label" parent="." unique_id=178137160]
+layout_mode = 0
+offset_left = -72.0
+offset_top = -15.5
+offset_right = -29.0
+offset_bottom = -4.5
+text = "Ambient FX"
+label_settings = SubResource("LabelSettings_pd50u")
+
+[node name="AmbientSlider" type="HSlider" parent="." unique_id=462725968]
+layout_mode = 0
+offset_left = -73.0
+offset_top = -2.5
+offset_right = 70.0
+offset_bottom = 13.5
+
+[node name="Label3" type="Label" parent="." unique_id=1702517341]
+layout_mode = 0
+offset_left = -72.0
+offset_top = 29.5
+offset_right = -52.0
+offset_bottom = 40.5
+text = "Sound FX"
+label_settings = SubResource("LabelSettings_pd50u")
+
+[node name="SFXSlider" type="HSlider" parent="." unique_id=249170444]
+layout_mode = 0
+offset_left = -73.0
+offset_top = 42.5
+offset_right = 70.0
+offset_bottom = 58.5
+
+[node name="CloseSettings" type="TextureButton" parent="." unique_id=879069177]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 62.0
+offset_top = -84.5
+offset_right = 72.0
+offset_bottom = -74.5
+grow_horizontal = 0
+texture_normal = SubResource("AtlasTexture_kt63j")
+texture_pressed = SubResource("AtlasTexture_kt63j")
+texture_hover = SubResource("AtlasTexture_40e78")
+
+[connection signal="value_changed" from="MusicSlider" to="." method="_on_music_slider_value_changed"]
+[connection signal="value_changed" from="AmbientSlider" to="." method="_on_ambient_slider_value_changed"]
+[connection signal="value_changed" from="SFXSlider" to="." method="_on_sfx_slider_value_changed"]
+[connection signal="pressed" from="CloseSettings" to="." method="_on_close_settings_pressed"]

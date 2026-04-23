@@ -24,6 +24,7 @@ region = Rect2(200, 0, 200, 48)
 
 [node name="GameOver" type="CanvasLayer" unique_id=1962485250]
 process_mode = 3
+layer = 2
 script = ExtResource("1_5pvkk")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=812826629]

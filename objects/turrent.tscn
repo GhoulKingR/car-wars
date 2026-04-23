@@ -84,6 +84,6 @@ process_mode = 3
 stream = ExtResource("4_nfloa")
 volume_db = -20.0
 max_polyphony = 5
-bus = &"Enemy sfx"
+bus = &"SoundFX"
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

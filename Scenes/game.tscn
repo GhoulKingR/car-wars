@@ -108,15 +108,16 @@ texture = ExtResource("6_h4fw4")
 
 [node name="FinalBeep" type="AudioStreamPlayer" parent="AudioManager" unique_id=280710880]
 stream = ExtResource("6_v158k")
-volume_db = -20.0
+volume_db = -10.0
 
 [node name="TimerBeep" type="AudioStreamPlayer" parent="AudioManager" unique_id=205037273]
 stream = ExtResource("7_1l0tm")
-volume_db = -20.0
+volume_db = -10.0
 max_polyphony = 3
 
 [node name="BackgroundSound" type="AudioStreamPlayer" parent="AudioManager" unique_id=1925386777]
 stream = ExtResource("4_i6g32")
+bus = &"AmbientFX"
 
 [connection signal="event" from="Player" to="." method="_game_event"]
 [connection signal="respawn" from="Player" to="." method="respawn"]

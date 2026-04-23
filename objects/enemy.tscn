@@ -243,6 +243,7 @@ process_mode = 3
 [node name="Explosion" type="AudioStreamPlayer2D" parent="AudioManager" unique_id=471121281]
 stream = ExtResource("6_2ld5k")
 volume_db = -20.0
+bus = &"SoundFX"
 
 [connection signal="shoot" from="Turrent" to="." method="_on_turrent_shoot"]
 [connection signal="timeout" from="RaycastTimer" to="." method="_on_raycast_timer_timeout"]

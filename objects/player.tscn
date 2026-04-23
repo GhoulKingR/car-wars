@@ -175,15 +175,15 @@ current = true
 [node name="Explosion" type="AudioStreamPlayer" parent="AudioManager" unique_id=571846981]
 process_mode = 3
 stream = ExtResource("6_3rerk")
-volume_db = -25.0
+bus = &"SoundFX"
 
 [node name="RattlingMovement" type="AudioStreamPlayer" parent="AudioManager" unique_id=119010228]
 stream = ExtResource("5_f46kd")
-volume_db = -35.0
+bus = &"SoundFX"
 
 [node name="HitSound" type="AudioStreamPlayer" parent="AudioManager" unique_id=1745689471]
 stream = ExtResource("7_i825w")
-volume_db = -25.0
 max_polyphony = 15
+bus = &"SoundFX"
 
 [connection signal="shoot" from="Turrent" to="." method="_on_turrent_shoot"]

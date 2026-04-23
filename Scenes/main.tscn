@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dy8by85m3ruo5" path="res://scripts/main.gd" id="1_jjgbg"]
 [ext_resource type="Texture2D" uid="uid://cetsf5nwndbih" path="res://assets/start menu.png" id="2_bo1nx"]
+[ext_resource type="AudioStream" uid="uid://dulsqwnl2ummr" path="res://assets/Sounds/alexgrohl-metal-dark-matter-111451.mp3" id="3_8gbba"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_8gbba"]
 
@@ -73,3 +74,12 @@ label_settings = SubResource("LabelSettings_8gbba")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="start_screen/Label" unique_id=2069851834]
 libraries/ = SubResource("AnimationLibrary_21xkr")
 autoplay = &"button_fade"
+
+[node name="AudioManager" type="Node" parent="." unique_id=1776478674]
+process_mode = 3
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="AudioManager" unique_id=1656781570]
+stream = ExtResource("3_8gbba")
+autoplay = true
+mix_target = 1
+bus = &"Music"
